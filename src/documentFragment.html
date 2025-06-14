@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div>
+            <h1>DocumentFragment</h1>
+        </div>
+        <div>
+            <p><span>DocumentFragment</span>は、軽量な、目に見えない「一時的なDOMコンテナ」です。</p>
+            <div>
+                <ul>
+                    <li><p>表示されません（画面にでない）</p></li>
+                    <li><p>仮のDOMツリーとして、ノードを操作・まとめるために使います。</p></li>
+                    <li><p>実 DOM （<span>document.body</span>など）へ一括で挿入可能</p></li>
+                </ul>
+            </div>
+            <div>
+                <div>
+                    <h2>なぜ使うのか？ (メリット)</h2>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>理由</td>
+                            <td>内容</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>パフォーマンス向上</td>
+                            <td>再描画を最小限に抑えられる</td>
+                        </tr>
+                        <tr>
+                            <td>一括操作が簡単</td>
+                            <td>複数要素をまとめて管理できる</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>template</span>との親和性
+                            </td>
+                            <td>
+                                <span>&lt;template>&gt;</span>
+                                は内部的に<span>Document.Fragment</span>を返す
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                メモリ効率
+                            </td>
+                            <td>
+                                DOMに反映されないので軽い処理が可能
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <p>※<span>fragment</span>自体は表示されず、中のノードだけがDOMに追加されます。</p>
+        </div>
+        <div>
+            <div>
+                <h2>主なプロパティ・メソッド</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>
+                            プロパティ/メソッド
+                        </td>
+                        <td>
+                            説明
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span>.appendChild(node)</span>
+                        </td>
+                        <td>
+                            ノードを追加
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>.cloneNode(true)</span>
+                        </td>
+                        <td>
+                            複製
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>.querySelector()</span>
+                        </td>
+                        <td>
+                            中の要素を探す
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>.childNodes</span>
+                        </td>
+                        <td>
+                            子ノード一覧(NodeList)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>.firstChild</span>/<span>.lastChild</span>
+                        </td>
+                        <td>
+                            最初/最後のノード
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>.textContent</span>
+                        </td>
+                        <td>
+                            全体のテキスト
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div>
+                <h2>DOMとDocumentFragmentの違い</h2>
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>特性</td>
+                            <td>DocumentFragment</td>
+                            <td>DOMノード (例: div)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>画面に表示されるか</td>
+                            <td>表示されない</td>
+                            <td>表示される</td>
+                        </tr>
+                        <tr>
+                            <td>parentNode</td>
+                            <td>null(親を持たない)</td>
+                            <td>DOMツリー上の親を持つ</td>
+                        </tr>
+                        <tr>
+                            <td>再描画コスト</td>
+                            <td>最小限</td>
+                            <td>多くなる可能性あり</td>
+                        </tr>
+                        <tr>
+                            <td>HTML構文解析</td>
+                            <td>不可</td>
+                            <td>可</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        <div>
+            <div>
+                <h2>DocumentFragmentのポイント</h2>
+            </div>
+            <div>
+                <table>
+                </table>
+            </div>
+        </div>
+    </main>
+    <template id="tpl">
+        <div class="box">テンプレート</div>
+    </template>
+    <style>
+        p {
+            margin: 5px 0 0 0;
+        }
+        span {
+            background: rgb(202, 202, 202);
+            border-radius: 4px;
+            padding: 0 3px;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+    <script src="documentFragment.js" defer></script>
+</body>
+</html>
