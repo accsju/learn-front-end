@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS @layer</title>
+</head>
+<body>
+    <!-- <p class="alert">ゾンビに注意</p> -->
+    <style>
+        /* @layer module, state;
+
+        @layer state {
+            .alert {
+                background-color: brown;
+            }
+            p {
+                border: medium solid limegreen;
+            }
+        }
+        @layer module {
+            .alert {
+                border: medium solid violet;
+                background-color: yellow;
+                color: white;
+            }
+        } */
+    </style>
+    <style>
+        /* @layer utilities {
+            .padding-sm {
+                padding: .5rem;
+            }
+            .padding-lg {
+                padding: .8rem;
+            }
+        }
+        @layer utilities;
+        @layer theme, layout, utilities; */
+        /*Priority -> theme < layout < utilities */
+
+        /* @layer;
+        @import "theme.css" layer(utilities);
+        @layer framework {
+            @layer layout {
+
+            }
+        }
+        @layer framework.layout {
+            p {
+                margin-block: 1rem;
+            }
+        } */
+    </style>
+    <!-- <div class="box">
+        <p>Hello, world!</p>
+    </div> -->
+    <style>
+        p {
+            color: rebeccapurple;
+        }
+        @layer type {
+            .box p {
+                font-weight: bold; 
+                font-size: 1.3rem;
+                color: green;
+            }
+        }
+    </style>
+    <section>
+        <div>
+            <h2>既存のレイヤーにルールを割り当てる</h2>
+        </div>
+        <div class="item">
+            これは、<code>base</code> レイヤーの後に <code>special</code> レイヤーが来るため、<code>color: rebeccapurple</code>
+            で表示されます。緑色の境界線、フォントサイズ、パディングは、 <code>base</code>レイヤーで決まります。
+        </div>
+    </section>
+    <style>
+        @layer base, special; 
+        /* Priority: base < special */
+        @layer special {
+            .item {
+                color: rebeccapurple;
+            }
+        }
+        @layer base {
+            .item {
+                color: green;
+                border: 5px solid green;
+                font-size: 1.3em;
+                padding: .5em;
+            }
+        }
+    </style>
+    <h1>Color</h1>
+    <style>
+        @layer first, second, therd;   
+        @layer first {
+            h1 {
+                color: blue;
+            }
+        }
+        @layer second {
+            h1 {
+                color: green;
+            }
+        }
+        @layer therd {
+            h1 {
+                color: red;
+            }
+        }
+        h1 {
+            color: yellow;
+        }
+    </style>
+</body>     
+</html>

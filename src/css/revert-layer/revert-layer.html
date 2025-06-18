@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>revert layer</title>
+    <meta name="anthor" content="xxxxx" />
+    <meta name="description" content="revert-layer section is.">
+</head>
+<body>
+    <p>この例にはリストがあります。</p>
+    <ul>
+        <li class="item feature">Item one</li>
+        <li class="item">Item two</li>
+        <li class="item">Item three</li>
+    </ul>
+    <style>
+        /* @layer base, special;
+        @layer special {
+            .item {
+                color: red;
+            }
+            .feature {
+                color: revert-layer;
+            }
+        }
+        @layer base {
+            .item {
+                color: blue;
+            }
+            .feature {
+                color: green;
+            }
+        } */
+        @layer base {
+            .item {
+                color: revert-layer;
+            }
+        }
+    </style>    
+</body>
+</html>
